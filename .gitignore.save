@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*.tmp
+
+
+git add .gitignore
+git commit -m "Add .gitignore to ignore system files"
+
+git add .
+
+
