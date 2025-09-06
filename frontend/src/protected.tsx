@@ -6,7 +6,7 @@ export default function Protected({
 }: {
   children: React.ReactElement;
 }) {
-  const token = localStorage.getItem('token');
-  if (!token) return <Navigate to="/" replace />;
+  const token = localStorage.getItem('authToken');
+  if (!token) return <Navigate to="/login" replace />;
   return children;
 }
