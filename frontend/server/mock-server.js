@@ -4,7 +4,7 @@ import http from 'http';
 const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/login') {
     let body = '';
-    req.on('data', chunk => body += chunk);
+    req.on('data', chunk => (body += chunk));
     req.on('end', () => {
       try {
         const { email } = JSON.parse(body);
@@ -29,4 +29,6 @@ const server = http.createServer((req, res) => {
 });
 
 const port = 5000;
-server.listen(port, () => console.log('Mock server listening on http://localhost:' + port));
+server.listen(port, () =>
+  console.log('Mock server listening on http://localhost:' + port),
+);

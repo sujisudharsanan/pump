@@ -1,0 +1,184 @@
+/* LoginModern.css */
+
+.login-modern-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  padding: 2rem;
+}
+
+.login-modern-card {
+  background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-modern-left {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.login-modern-header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.login-modern-subheader {
+  color: #6b7280;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.login-modern-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background: #fff;
+}
+
+.login-modern-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login-modern-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.login-modern-input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #fff;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.login-modern-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.login-modern-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.login-modern-input.error {
+  border-color: #dc2626;
+}
+
+.login-modern-next-btn {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.login-modern-next-btn:hover {
+  background: #1d4ed8;
+}
+
+.login-modern-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.login-modern-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.login-modern-disclaimer {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+}
+
+.login-modern-footer {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .login-modern-card {
+    flex-direction: column;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .login-modern-left {
+    padding: 2rem;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .login-modern-right {
+    padding: 2rem;
+  }
+
+  .login-modern-header {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .login-modern-card {
+    flex-direction: column;
+    max-width: 98vw;
+  }
+  .login-modern-left,
+  .login-modern-right {
+    padding: 2rem 1rem;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .login-modern-footer-row {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-modern-header {
+    font-size: 2rem;
+  }
+  .login-modern-card {
+    border-radius: 0.7rem;
+  }
+}

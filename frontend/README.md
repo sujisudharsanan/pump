@@ -1,80 +1,98 @@
-# React + TypeScript + Vite
+# Petrol Pump Management System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Project Overview
 
-Currently, two official plugins are available:
+A modern, production-ready frontend application for Petrol Pump Management System built with React, TypeScript, and Tailwind CSS, following enterprise-level development guidelines.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Project Development Guidelines Implementation
 
-## Expanding the ESLint configuration
+### ✅ 1. Strong Testing (MUST)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Testing Framework**: Vitest + React Testing Library
+- **Test Types**: Unit tests, Integration tests, Component tests
+- **Test Coverage**: Configured with coverage reporting
+- **Commands**:
+  ```bash
+  npm run test          # Run tests in watch mode
+  npm run test:run      # Run tests once
+  npm run test:ui       # Run tests with UI
+  npm run test:coverage # Run tests with coverage
+  ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### ✅ 2. Error Handling & Frontend Display
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Structured Error Codes**: Comprehensive error code system (1000-1899)
+- **Error Handler**: `ApiErrorHandler` class for consistent error processing
+- **User-Friendly Messages**: Toast notifications for all user interactions
+- **Error Types**:
+  - Authentication Errors (1000-1099)
+  - User Management Errors (1100-1199)
+  - Pump Operations Errors (1200-1299)
+  - Transaction Errors (1300-1399)
+  - And more...
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### ✅ 3. Clean & Scalable Code
+
+- **TypeScript**: 100% TypeScript implementation
+- **Modular Architecture**: Component-based architecture with clear separation
+- **Linting**: ESLint + TypeScript ESLint configurations
+- **Code Organization**:
+  ```
+  src/
+  ├── components/        # Reusable UI components
+  ├── contexts/         # React contexts
+  ├── hooks/           # Custom React hooks
+  ├── types/           # TypeScript type definitions
+  ├── utils/           # Utility functions
+  └── test/            # Test files
+  ```
+
+### ✅ 4. Validation & Form Handling
+
+- **Form Validator**: Comprehensive validation system
+- **Real-time Validation**: Field-level validation with immediate feedback
+- **Common Rules**: Pre-defined validation rules for common fields
+- **Error Display**: User-friendly error messages
+
+### ✅ 5. Modern UI/UX
+
+- **Tailwind CSS**: Utility-first CSS framework
+- **Responsive Design**: Mobile-first responsive design
+- **Toast Notifications**: Real-time user feedback system
+- **Loading States**: Proper loading indicators
+- **Modern Components**: Clean, professional interface
+
+## 🏗️ Project Structure
+
 ```
-
-## Local run (dev + mock server)
-
-Run the mock backend for testing and the Vite dev server in separate terminals:
-
-```bash
-npm run mock-server
-npm run dev
-```
-
-The mock server listens on http://localhost:5000 and accepts POST /login with JSON { email, password }.
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+frontend/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Auth/
+│   │   │   └── PetrolPumpLogin.tsx
+│   │   └── Toast/
+│   │       └── ToastContainer.tsx
+│   ├── contexts/
+│   │   └── ToastContext.tsx
+│   ├── hooks/
+│   │   └── useToast.ts
+│   ├── types/
+│   │   └── errors.ts
+│   ├── utils/
+│   │   ├── errorHandler.ts
+│   │   └── validation.ts
+│   ├── test/
+│   │   ├── setup.ts
+│   │   └── validation.test.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── server/
+│   └── mock-server.js
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+├── vitest.config.ts
+└── README.md
 ```
