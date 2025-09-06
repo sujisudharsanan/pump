@@ -15,12 +15,12 @@ const Welcome: React.FC = () => {
         <h1 className="text-6xl font-bold text-[#FBC02D] drop-shadow-lg">
           Now You are logged in
         </h1>
-        
+
         <div className="space-y-4">
           <p className="text-xl text-gray-700">
             Welcome to Petrol Pump Management System
           </p>
-          
+
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => navigate('/dashboard')}
@@ -29,7 +29,7 @@ const Welcome: React.FC = () => {
             >
               Go to Dashboard
             </button>
-            
+
             <button
               onClick={handleLogout}
               className="bg-red-600 text-white px-6 py-3 rounded-full 
