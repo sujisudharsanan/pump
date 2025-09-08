@@ -6,7 +6,7 @@ import {
   Navigate,
   useNavigate,
 } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
+import SimpleDashboard from './pages/SimpleDashboard';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactElement }) => {
@@ -25,7 +25,7 @@ function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <SimpleDashboard />
             </ProtectedRoute>
           }
         />
