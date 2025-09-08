@@ -1,0 +1,47 @@
+Last login: Fri Sep  5 15:05:44 on ttys017
+abhi@MacBook-Air ~ % crontab -e
+
+crontab: no crontab for abhi - using an empty one
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/10 * * * * /bin/bash /Users/abhi/Desktop/Application\ building/push.sh >> /Users/abhi/Desktop/Application\ building/push.log 2>&1
+
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+
