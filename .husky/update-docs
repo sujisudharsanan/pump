@@ -1,0 +1,18 @@
+#!/bin/sh
+# Pre-commit hook to update architecture documentation
+
+echo "🔍 Updating architecture documentation..."
+
+# Run the documentation generator
+node docs-generator.js scan
+
+# Check if documentation files were modified
+if git diff --cached --quiet APPLICATION_ARCHITECTURE_MATRIX.md ARCHITECTURE_REPORT.md 2>/dev/null; then
+  echo "📄 Documentation is up to date"
+else
+  echo "📝 Architecture documentation updated"
+  # Add the updated documentation to the commit
+  git add APPLICATION_ARCHITECTURE_MATRIX.md ARCHITECTURE_REPORT.md 2>/dev/null || true
+fi
+
+echo "✅ Pre-commit documentation check complete"

@@ -1,0 +1,155 @@
+/* Login.css */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7f8;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.login-header-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffc400;
+  flex-shrink: 0;
+}
+
+.login-header {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a1623;
+  margin: 0;
+}
+
+.login-subheader {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0.25rem 0 0 0;
+}
+
+.login-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-label {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.login-input {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #f9fafb;
+}
+
+.login-input:focus {
+  border-color: #2563eb;
+}
+
+.login-input-error {
+  border-color: #ef4444;
+  background: #fff0f0;
+}
+
+.login-error {
+  color: #ef4444;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.login-links-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.login-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 1rem;
+  transition:
+    text-decoration 0.2s,
+    color 0.2s;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}
+
+.login-disclaimer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-size: 0.98rem;
+}
+
+.login-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.login-next-btn {
+  background: #ffc400;
+  color: #0a1623;
+  font-weight: 700;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.login-next-btn:hover {
+  background: #ffd54f;
+  color: #0a1623;
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .login-header-section {
+    gap: 1rem;
+  }
+  .login-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
