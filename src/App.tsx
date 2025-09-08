@@ -36,6 +36,7 @@ function App() {
 }
 
 function LoginPage() {
+  // "email" here can be either an email address or a simple username like 'admin'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -52,9 +53,8 @@ function LoginPage() {
     setIsLoading(true);
 
     try {
-      // Check for admin credentials
+      // 1. Direct admin credential shortcut (username based)
       if (email === 'admin' && password === 'admin') {
-        // Store token and user info for admin
         localStorage.setItem('token', 'admin-token');
         localStorage.setItem(
           'user',
@@ -64,28 +64,33 @@ function LoginPage() {
         return;
       }
 
-      // For other credentials, try API call (fallback)
+      // 2. If it's a plain username (no @) just allow demo login immediately
+      if (!email.includes('@')) {
+        localStorage.setItem('token', 'user-token');
+        localStorage.setItem('user', JSON.stringify({ email, role: 'user' }));
+        navigate('/dashboard');
+        return;
+      }
+
+      // 3. Attempt API login ONLY if it looks like an email
       try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 1500); // fail fast if backend not running
         const response = await fetch('http://localhost:5000/login', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
+          signal: controller.signal,
         });
+        clearTimeout(timeout);
 
-        if (!response.ok) {
-          throw new Error('Invalid credentials');
-        }
-
+        if (!response.ok) throw new Error('Invalid credentials');
         const data = await response.json();
-
-        // Store token and redirect to dashboard
         localStorage.setItem('token', data.token || 'user-token');
         localStorage.setItem('user', JSON.stringify({ email, role: 'user' }));
         navigate('/dashboard');
       } catch {
-        // If API fails, allow any email/password combination for demo
+        // Silent fallback to demo mode
         localStorage.setItem('token', 'demo-token');
         localStorage.setItem('user', JSON.stringify({ email, role: 'user' }));
         navigate('/dashboard');
@@ -116,20 +121,24 @@ function LoginPage() {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email address
+                Email or Username
               </label>
               <input
-                type="email"
+                type="text"
+                autoComplete="username"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value.trim())}
                 className="appearance-none block w-full px-3 py-2 border 
                          border-gray-300 rounded-md shadow-sm 
                          placeholder-gray-400 focus:outline-none 
                          focus:ring-yellow-500 focus:border-yellow-500 
                          sm:text-sm"
-                placeholder="Enter your email"
+                placeholder="e.g. admin or user@example.com"
                 required
               />
+              <p className="mt-1 text-xs text-gray-500">
+                Tip: Use username 'admin' and password 'admin' for admin access.
+              </p>
             </div>
 
             <div>
