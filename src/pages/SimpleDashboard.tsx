@@ -19,7 +19,7 @@ const SimpleDashboard: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/');
   };

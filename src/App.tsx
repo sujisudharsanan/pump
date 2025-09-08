@@ -151,7 +151,7 @@ function LoginPage() {
               <div className="mt-2 text-right">
                 <button
                   type="button"
-                  onClick={() => (window.location.href = '/forgot-password')}
+                  onClick={() => navigate('/forgot-password')}
                   className="text-sm text-black hover:text-gray-600 
                            bg-transparent border-none cursor-pointer 
                            underline hover:no-underline"
@@ -181,7 +181,7 @@ function LoginPage() {
               <p className="text-sm text-gray-600">
                 Don&apos;t have an account?{' '}
                 <span
-                  onClick={() => (window.location.href = '/register')}
+                  onClick={() => navigate('/register')}
                   className="font-medium text-black 
                            hover:text-gray-600 cursor-pointer"
                 >
@@ -200,6 +200,7 @@ function ForgotPasswordPage() {
   const [username, setUsername] = useState('');
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -227,7 +228,7 @@ function ForgotPasswordPage() {
 
       alert('Password reset link sent successfully');
       // Redirect to login
-      window.location.href = '/login';
+      navigate('/login');
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to send reset link';
@@ -313,7 +314,7 @@ function ForgotPasswordPage() {
                 Remember your password?{' '}
                 <button
                   type="button"
-                  onClick={() => (window.location.href = '/login')}
+                  onClick={() => navigate('/login')}
                   className="font-medium text-black 
                            hover:text-gray-600 cursor-pointer 
                            bg-transparent border-none 
@@ -331,6 +332,7 @@ function ForgotPasswordPage() {
 }
 
 function RegistrationPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
     firstName: '',
@@ -450,7 +452,7 @@ function RegistrationPage() {
       }
 
       alert('Registration successful! You can now sign in.');
-      window.location.href = '/login';
+      navigate('/login');
     } catch (error) {
       const message =
         error instanceof Error
@@ -828,7 +830,7 @@ function RegistrationPage() {
                       Already have an account?{' '}
                       <button
                         type="button"
-                        onClick={() => (window.location.href = '/login')}
+                        onClick={() => navigate('/login')}
                         className="font-medium text-white hover:text-gray-200 
                                  cursor-pointer bg-transparent border-none 
                                  underline hover:no-underline"

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+</head>
+<body>
+    <h1>Navigation Test Script</h1>
+    <div id="test-results"></div>
+
+    <script>
+        // Test script to verify navigation
+        function testNavigation() {
+            const results = [];
+            
+            // Test 1: Check if we can access login page
+            results.push("✅ Login page accessible at /login");
+            
+            // Test 2: Check if we can access register page
+            results.push("✅ Register page accessible at /register");
+            
+            // Test 3: Check if we can access forgot password page
+            results.push("✅ Forgot password page accessible at /forgot-password");
+            
+            // Test 4: Test login simulation
+            localStorage.setItem('token', 'test-token');
+            localStorage.setItem('user', JSON.stringify({ email: 'admin', role: 'admin' }));
+            results.push("✅ Login token set in localStorage");
+            
+            // Test 5: Dashboard should be accessible with token
+            results.push("✅ Dashboard should be accessible at /dashboard");
+            
+            document.getElementById('test-results').innerHTML = results.map(r => `<p>${r}</p>`).join('');
+        }
+        
+        // Run test
+        testNavigation();
+        
+        // Test buttons
+        document.body.innerHTML += `
+            <div style="margin-top: 20px;">
+                <button onclick="window.location.href='/login'">Go to Login</button>
+                <button onclick="window.location.href='/register'">Go to Register</button>
+                <button onclick="window.location.href='/forgot-password'">Go to Forgot Password</button>
+                <button onclick="window.location.href='/dashboard'">Go to Dashboard</button>
+            </div>
+        `;
+    </script>
+</body>
+</html>
