@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
+  useNavigate,
 } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 
@@ -38,6 +39,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +60,7 @@ function LoginPage() {
           'user',
           JSON.stringify({ email: 'admin', role: 'admin' })
         );
-        window.location.href = '/dashboard';
+        navigate('/dashboard');
         return;
       }
 
@@ -81,12 +83,12 @@ function LoginPage() {
         // Store token and redirect to dashboard
         localStorage.setItem('token', data.token || 'user-token');
         localStorage.setItem('user', JSON.stringify({ email, role: 'user' }));
-        window.location.href = '/dashboard';
+        navigate('/dashboard');
       } catch {
         // If API fails, allow any email/password combination for demo
         localStorage.setItem('token', 'demo-token');
         localStorage.setItem('user', JSON.stringify({ email, role: 'user' }));
-        window.location.href = '/dashboard';
+        navigate('/dashboard');
       }
     } catch (error) {
       alert(error instanceof Error ? error.message : 'Login failed');
