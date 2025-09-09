@@ -49,35 +49,35 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
         hideToast(id);
       }, newToast.duration);
     },
-    [hideToast],
+    [hideToast]
   );
 
   const showError = useCallback(
     (title: string, message?: string) => {
       showToast({ type: 'error', title, message });
     },
-    [showToast],
+    [showToast]
   );
 
   const showSuccess = useCallback(
     (title: string, message?: string) => {
       showToast({ type: 'success', title, message });
     },
-    [showToast],
+    [showToast]
   );
 
   const showWarning = useCallback(
     (title: string, message?: string) => {
       showToast({ type: 'warning', title, message });
     },
-    [showToast],
+    [showToast]
   );
 
   const showInfo = useCallback(
     (title: string, message?: string) => {
       showToast({ type: 'info', title, message });
     },
-    [showToast],
+    [showToast]
   );
 
   return (

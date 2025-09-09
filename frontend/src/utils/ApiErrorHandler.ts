@@ -5,7 +5,7 @@ interface ApiError {
 }
 
 export class ApiErrorHandler {
-  // Error code ranges: 1000-1099 (Auth), 1100-1199 (Validation), 
+  // Error code ranges: 1000-1099 (Auth), 1100-1199 (Validation),
   // 1200-1299 (Business), 1300-1399 (System)
   private static errorMessages: Record<number, string> = {
     // Authentication Errors (1000-1099)
@@ -54,7 +54,7 @@ export class ApiErrorHandler {
       if (knownMessage) {
         return knownMessage;
       }
-      
+
       // Fallback to provided message but sanitize it
       return this.sanitizeErrorMessage(error.message || 'Unknown error');
     }
@@ -68,15 +68,16 @@ export class ApiErrorHandler {
       .replace(/SQL|Database|Server|Internal/gi, 'System')
       .replace(/Exception|Error:/gi, '')
       .replace(/\b\d{4}-\d{2}-\d{2}\b/g, '') // Remove timestamps
-      .replace(/\b[A-Z]{2,}\b/g, (match) => 
-        match.charAt(0) + match.slice(1).toLowerCase()
-      ) // Convert ALL CAPS to proper case
+      .replace(
+        /\b[A-Z]{2,}\b/g,
+        match => match.charAt(0) + match.slice(1).toLowerCase()
+      )
       .trim();
 
     // Ensure it starts with capital letter and ends with period
-    const formatted = sanitized.charAt(0).toUpperCase() + 
-                     sanitized.slice(1).toLowerCase();
-    
+    const formatted =
+      sanitized.charAt(0).toUpperCase() + sanitized.slice(1).toLowerCase();
+
     return formatted.endsWith('.') ? formatted : formatted + '.';
   }
 
@@ -113,9 +114,10 @@ export class ApiErrorHandler {
       context: context || 'Unknown',
       error: typeof error === 'string' ? { message: error } : error,
     };
-    
+
+    // eslint-disable-next-line no-console
     console.error('API Error:', errorData);
-    
+
     // In production, this would send to logging service
     // Example: LoggingService.logError(errorData);
   }

@@ -39,8 +39,8 @@ export class FormValidator {
   }
 
   static validateMinLength(
-    value: string, 
-    minLength: number, 
+    value: string,
+    minLength: number,
     fieldName: string
   ): string | null {
     if (value.length < minLength) {
@@ -50,8 +50,8 @@ export class FormValidator {
   }
 
   static validateMaxLength(
-    value: string, 
-    maxLength: number, 
+    value: string,
+    maxLength: number,
     fieldName: string
   ): string | null {
     if (value.length > maxLength) {

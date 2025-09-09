@@ -29,7 +29,7 @@ export class FormValidator {
   static validateField(
     value: unknown,
     rules: ValidationRule,
-    fieldName: string,
+    fieldName: string
   ): ValidationError | null {
     // Required validation
     if (
@@ -145,7 +145,7 @@ export class FormValidator {
    */
   static validateForm(
     data: Record<string, unknown>,
-    rules: Record<string, ValidationRule>,
+    rules: Record<string, ValidationRule>
   ): ValidationResult {
     const errors: ValidationError[] = [];
 

@@ -11,7 +11,7 @@ const Register: React.FC = () => {
     password: '',
     confirmPassword: '',
     fullName: '',
-    role: 'manager'
+    role: 'manager',
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -20,31 +20,33 @@ const Register: React.FC = () => {
 
   const validateForm = () => {
     const validationErrors: Record<string, string> = {};
-    
+
     if (!FormValidator.isValidEmail(formData.email)) {
       validationErrors.email = 'Please enter a valid email address';
     }
-    
+
     if (!FormValidator.isValidPassword(formData.password)) {
       validationErrors.password = 'Password must be at least 6 characters';
     }
-    
+
     if (formData.password !== formData.confirmPassword) {
       validationErrors.confirmPassword = 'Passwords do not match';
     }
-    
+
     if (!FormValidator.isValidName(formData.fullName)) {
       validationErrors.fullName = 'Please enter your full name';
     }
-    
+
     setErrors(validationErrors);
     return Object.keys(validationErrors).length === 0;
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
@@ -53,14 +55,14 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       showError('Please fix the errors below');
       return;
     }
 
     setIsLoading(true);
-    
+
     try {
       const response = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
@@ -71,7 +73,7 @@ const Register: React.FC = () => {
           email: formData.email,
           password: formData.password,
           fullName: formData.fullName,
-          role: formData.role
+          role: formData.role,
         }),
       });
 
@@ -103,8 +105,11 @@ const Register: React.FC = () => {
             placeholder="Full Name"
             className={`w-full h-12 border rounded-md px-3 
                      focus:outline-none focus:ring-2 focus:border-transparent
-                     ${errors.fullName ? 'border-red-500 focus:ring-red-500' : 
-                       'border-gray-300 focus:ring-blue-600'}`}
+                     ${
+                       errors.fullName
+                         ? 'border-red-500 focus:ring-red-500'
+                         : 'border-gray-300 focus:ring-blue-600'
+                     }`}
             disabled={isLoading}
           />
           {errors.fullName && (
@@ -121,8 +126,11 @@ const Register: React.FC = () => {
             placeholder="Email address"
             className={`w-full h-12 border rounded-md px-3 
                      focus:outline-none focus:ring-2 focus:border-transparent
-                     ${errors.email ? 'border-red-500 focus:ring-red-500' : 
-                       'border-gray-300 focus:ring-blue-600'}`}
+                     ${
+                       errors.email
+                         ? 'border-red-500 focus:ring-red-500'
+                         : 'border-gray-300 focus:ring-blue-600'
+                     }`}
             disabled={isLoading}
           />
           {errors.email && (
@@ -154,8 +162,11 @@ const Register: React.FC = () => {
             placeholder="Password"
             className={`w-full h-12 border rounded-md px-3 
                      focus:outline-none focus:ring-2 focus:border-transparent
-                     ${errors.password ? 'border-red-500 focus:ring-red-500' : 
-                       'border-gray-300 focus:ring-blue-600'}`}
+                     ${
+                       errors.password
+                         ? 'border-red-500 focus:ring-red-500'
+                         : 'border-gray-300 focus:ring-blue-600'
+                     }`}
             disabled={isLoading}
           />
           {errors.password && (
@@ -172,13 +183,17 @@ const Register: React.FC = () => {
             placeholder="Confirm Password"
             className={`w-full h-12 border rounded-md px-3 
                      focus:outline-none focus:ring-2 focus:border-transparent
-                     ${errors.confirmPassword ? 
-                       'border-red-500 focus:ring-red-500' : 
-                       'border-gray-300 focus:ring-blue-600'}`}
+                     ${
+                       errors.confirmPassword
+                         ? 'border-red-500 focus:ring-red-500'
+                         : 'border-gray-300 focus:ring-blue-600'
+                     }`}
             disabled={isLoading}
           />
           {errors.confirmPassword && (
-            <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.confirmPassword}
+            </p>
           )}
         </div>
 

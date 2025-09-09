@@ -4,6 +4,43 @@
 
 Your development guidelines are now **automatically enforced** across your entire development workflow. Here's what's been set up:
 
+## 🔄 NEW: Automated Documentation System
+
+### **Auto-Updating Architecture Documentation**
+
+I've added a comprehensive documentation system that automatically tracks:
+
+- **Page-Component Mapping**: Routes, components, and their relationships
+- **Access Control Matrix**: Role-based permissions and security mapping
+- **API Endpoint Discovery**: Frontend-to-backend integration mapping
+- **Real-time Updates**: Documentation stays current with code changes
+
+### **Files Added**:
+
+- `APPLICATION_ARCHITECTURE_MATRIX.md` - Main architecture documentation
+- `ARCHITECTURE_REPORT.md` - Auto-generated analysis report
+- `docs-generator.js` - Documentation generator script
+- `docs-watcher.js` - Real-time file monitoring
+- `DOCUMENTATION_SYSTEM_README.md` - Complete usage guide
+
+### **NPM Scripts Added**:
+
+```bash
+npm run docs:generate   # Generate documentation once
+npm run docs:watch      # Start real-time file watcher
+npm run docs:update     # Generate docs and stage for git
+npm run quality:full    # Full quality check + documentation
+```
+
+### **Benefits**:
+
+- ✅ **Always up-to-date** - Documentation automatically reflects code changes
+- ✅ **Security mapping** - Clear access control and permission matrix
+- ✅ **Developer onboarding** - Easy architecture understanding for new team members
+- ✅ **Quality assurance** - Integrated with existing quality pipeline
+
+---
+
 ## 🔧 Automated Tools Active
 
 ### 1. **Pre-commit Hooks (Husky)**

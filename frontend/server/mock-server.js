@@ -30,5 +30,5 @@ const server = http.createServer((req, res) => {
 
 const port = 5000;
 server.listen(port, () =>
-  console.log('Mock server listening on http://localhost:' + port),
+  console.log('Mock server listening on http://localhost:' + port)
 );

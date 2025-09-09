@@ -8,7 +8,7 @@ describe('FormValidator', () => {
       const result = FormValidator.validateField(
         '',
         { required: true },
-        'email',
+        'email'
       );
 
       expect(result).not.toBeNull();
@@ -21,7 +21,7 @@ describe('FormValidator', () => {
       const result = FormValidator.validateField(
         'test@example.com',
         { required: true, email: true },
-        'email',
+        'email'
       );
 
       expect(result).toBeNull();
@@ -31,7 +31,7 @@ describe('FormValidator', () => {
       const result = FormValidator.validateField(
         'invalid-email',
         { email: true },
-        'email',
+        'email'
       );
 
       expect(result).not.toBeNull();
@@ -43,7 +43,7 @@ describe('FormValidator', () => {
       const result = FormValidator.validateField(
         'abc',
         { minLength: 5 },
-        'password',
+        'password'
       );
 
       expect(result).not.toBeNull();

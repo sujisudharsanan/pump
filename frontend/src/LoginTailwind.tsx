@@ -28,7 +28,9 @@ const LoginTailwind = () => {
             <input
               type="text"
               placeholder="Email or phone"
-              className="w-full h-[45px] px-3 border border-[#E0E0E0] rounded-[6px] focus:outline-none focus:border-[#FBC02D] focus:ring-1 focus:ring-[#FBC02D]"
+              className="w-full h-[45px] px-3 border border-[#E0E0E0] rounded-[6px] 
+                         focus:outline-none focus:border-[#FBC02D] focus:ring-1 
+                         focus:ring-[#FBC02D]"
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
@@ -61,7 +63,8 @@ const LoginTailwind = () => {
               </a>
               <button
                 type="submit"
-                className="w-[100px] h-[40px] bg-[#FBC02D] rounded-full font-bold text-black shadow hover:bg-[#FDD35C] transition-colors"
+                className="w-[100px] h-[40px] bg-[#FBC02D] rounded-full font-bold 
+                           text-black shadow hover:bg-[#FDD35C] transition-colors"
               >
                 Next
               </button>

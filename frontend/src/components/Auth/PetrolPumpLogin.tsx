@@ -117,11 +117,17 @@ const PetrolPumpLogin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div
+      className="min-h-screen flex items-center justify-center 
+                 bg-gradient-to-br from-blue-50 to-indigo-100"
+    >
       <div className="w-full max-w-md bg-white rounded-xl shadow-2xl p-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div
+            className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 
+                       rounded-full flex items-center justify-center mx-auto mb-4"
+          >
             <span className="text-white text-2xl font-bold">⛽</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
@@ -155,9 +161,12 @@ const PetrolPumpLogin: React.FC = () => {
               required
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                errors.email ? 'border-red-500 bg-red-50' : 'border-gray-300'
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 
+                          focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                            errors.email
+                              ? 'border-red-500 bg-red-50'
+                              : 'border-gray-300'
+                          }`}
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -182,11 +191,12 @@ const PetrolPumpLogin: React.FC = () => {
                 required
                 value={formData.password}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors pr-12 ${
-                  errors.password
-                    ? 'border-red-500 bg-red-50'
-                    : 'border-gray-300'
-                }`}
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 
+                            focus:ring-blue-500 focus:border-blue-500 transition-colors pr-12 ${
+                              errors.password
+                                ? 'border-red-500 bg-red-50'
+                                : 'border-gray-300'
+                            }`}
                 placeholder="Enter your password"
               />
               <button
@@ -211,12 +221,16 @@ const PetrolPumpLogin: React.FC = () => {
             className={`w-full py-3 px-4 rounded-lg font-medium text-white transition-colors ${
               isLoading
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+                : `bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 
+                   hover:to-indigo-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`
             }`}
           >
             {isLoading ? (
               <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                <div
+                  className="animate-spin rounded-full h-5 w-5 border-b-2
+                             border-white mr-2"
+                ></div>
                 Signing in...
               </div>
             ) : (

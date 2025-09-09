@@ -7,7 +7,8 @@ const ToastContainer: React.FC = () => {
 
   const getToastStyles = (type: ToastType): string => {
     const baseStyles =
-      'fixed top-4 right-4 z-50 max-w-sm w-full bg-white rounded-lg shadow-lg border-l-4 p-4 mb-2 transition-all duration-300 ease-in-out transform';
+      'fixed top-4 right-4 z-50 max-w-sm w-full bg-white rounded-lg shadow-lg ' +
+      'border-l-4 p-4 mb-2 transition-all duration-300 ease-in-out transform';
 
     const typeStyles: Record<ToastType, string> = {
       success: 'border-green-500 text-green-800 bg-green-50',

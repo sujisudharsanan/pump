@@ -9,7 +9,7 @@ export class ApiErrorHandler {
     status: number,
     message: string,
     code: ErrorCode,
-    details?: Record<string, unknown>,
+    details?: Record<string, unknown>
   ): ApiError {
     return {
       status,
@@ -60,7 +60,7 @@ export class ApiErrorHandler {
         return this.createError(
           503,
           'Network connection failed. Please check your internet connection.',
-          ERROR_CODES.SYSTEM_INTERNAL_ERROR,
+          ERROR_CODES.SYSTEM_INTERNAL_ERROR
         );
       }
 
@@ -68,7 +68,7 @@ export class ApiErrorHandler {
         return this.createError(
           408,
           'Request timed out. Please try again.',
-          ERROR_CODES.SYSTEM_INTERNAL_ERROR,
+          ERROR_CODES.SYSTEM_INTERNAL_ERROR
         );
       }
     }
@@ -80,7 +80,7 @@ export class ApiErrorHandler {
       500,
       'An unexpected error occurred. Please try again.',
       ERROR_CODES.SYSTEM_INTERNAL_ERROR,
-      { originalError: errorMessage },
+      { originalError: errorMessage }
     );
   }
 
